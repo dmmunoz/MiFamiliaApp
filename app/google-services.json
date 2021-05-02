@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "932628421977",
+    "project_id": "mifamilia-daace",
+    "storage_bucket": "mifamilia-daace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932628421977:android:94e7e614f0c3e917a24048",
+        "android_client_info": {
+          "package_name": "app.dmmunoz.mifamilia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932628421977-mfd72fmc5n9b98or7qifr7bl0c1e10ak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5jK8HkJj0cwSorV7QjWi7p0hNMZAvuFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932628421977-mfd72fmc5n9b98or7qifr7bl0c1e10ak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

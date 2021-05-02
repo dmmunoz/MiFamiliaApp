@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MiFamilia</string>
+    <string name="todo">TODO</string>
+    <string name="clickRegistrar">clickRegistrar</string>
+    <string name="clickRecuperarPass">clickRecuperarPass</string>
+    <string name="clickCondiciones">clickCondiciones</string>
+    <string name="setOnClickListener">setOnClickListener</string>
+</resources>
