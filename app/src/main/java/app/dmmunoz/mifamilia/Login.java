@@ -13,17 +13,17 @@
 
     import com.google.android.gms.tasks.OnCompleteListener;
     import com.google.android.gms.tasks.Task;
+    import com.google.firebase.analytics.FirebaseAnalytics;
     import com.google.firebase.auth.AuthResult;
     import com.google.firebase.auth.FirebaseAuth;
-    import com.google.firebase.database.FirebaseDatabase;
+    import com.google.firebase.auth.FirebaseUser;
 
     public class Login extends AppCompatActivity implements View.OnClickListener{
         Button btnLogin;
         EditText txtEmail, txtPassword;
         TextView tvError, txtForget, txtRegistrar;
         FirebaseAuth mAuth;
-        FirebaseDatabase database;
-        static SharedGlobals globals;
+        private FirebaseAnalytics analytics;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +42,13 @@
             super.onCreate(savedInstanceState);
             //Llamamos al activity de Login
             setContentView(R.layout.activity_login);
-
+            analytics = FirebaseAnalytics.getInstance(this);
             btnLogin = (Button)findViewById(R.id.btAcceso);
             txtEmail = findViewById(R.id.etUser);
             txtPassword = findViewById(R.id.etPass);
             txtForget= findViewById(R.id.etForgetLogin);
             txtRegistrar=findViewById(R.id.etRegistrar);
             tvError = findViewById(R.id.etErrorInicio);
-            database = FirebaseDatabase.getInstance();
             mAuth = FirebaseAuth.getInstance();
 
             //Asociamos los botones al Listener de click
@@ -86,10 +85,16 @@
                         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                FirebaseUser usuarioVerificado = mAuth.getCurrentUser();
                                 if (task.isSuccessful()) {
-                                    Intent in = new Intent(Login.this, Home.class);
-                                    in.setFlags(in.FLAG_ACTIVITY_NEW_TASK | in.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(in);
+                                    if(usuarioVerificado.isEmailVerified()){
+                                        Intent in = new Intent(Login.this, Home.class);
+                                        in.setFlags(in.FLAG_ACTIVITY_NEW_TASK | in.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(in);
+                                    } else{
+                                        Toast.makeText(Login.this, "Verifica el correo y autentifica cuenta", Toast.LENGTH_LONG).show();
+                                    }
+
                                 }
                                 else
                                 {
@@ -106,14 +111,17 @@
                      * Para enviar un correo electrónico de restablecimiento de contraseña a un usuario usaremos el método sendPasswordResetEmail
                      */
                     case R.id.etForgetLogin:
+                        Intent in1 = new Intent(Login.this, recuperarPassword.class);
+                        in1.setFlags(in1.FLAG_ACTIVITY_NEW_TASK | in1.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(in1);
                         break;
                     /**
                      * Entramos a la activity para el registro de un nuevo usuario.
                      */
                     case R.id.etRegistrar:
-                        Intent in = new Intent(Login.this, Singup.class);
-                        in.setFlags(in.FLAG_ACTIVITY_NEW_TASK | in.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(in);
+                        Intent in2 = new Intent(Login.this, comprobacionEmail.class);
+                        in2.setFlags(in2.FLAG_ACTIVITY_NEW_TASK | in2.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(in2);
                         break;
 
                 }

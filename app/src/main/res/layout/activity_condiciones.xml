@@ -7,21 +7,6 @@
     android:background="@color/colorMiFamilia"
     tools:context=".condiciones">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="296dp"
-        android:layout_marginLeft="296dp"
-        android:layout_marginTop="1600dp"
-        android:layout_marginBottom="2dp"
-        android:background="@color/cyanMiFamilia"
-        android:text="ATRAS"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="372dp"

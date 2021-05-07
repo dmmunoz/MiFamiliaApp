@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_mifamilia"
         android:supportsRtl="true"
         android:theme="@style/SplashTheme">
-        <activity android:name=".condiciones"></activity>
-        <activity android:name=".Singup"></activity>
+        <activity android:name=".comprobacionEmail"></activity>
+        <activity android:name=".AfterSingout" />
+        <activity android:name=".recuperarPassword" />
+        <activity android:name=".condiciones" />
+        <activity android:name=".Singup" />
         <activity android:name=".Home" />
         <activity android:name=".Login">
             <intent-filter>

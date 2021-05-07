@@ -5,7 +5,15 @@ public class Usuario {
     private String UserID;
     private String Name;
     private String Email;
+    private Boolean premium;
 
+    public Boolean getPremium() {
+        return premium;
+    }
+
+    public void setPremium(Boolean premium) {
+        this.premium = premium;
+    }
 
     public String getUserID() {
         return UserID;
@@ -34,13 +42,14 @@ public class Usuario {
 
     public Usuario()
     {
-
+        premium = false;
     }
 
     public Usuario(String uid, String name, String email) {
         UserID = uid;
         Name = name;
         Email = email;
+        premium = false;
 
     }
 
